@@ -1,0 +1,200 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:columnCount="3"
+    android:orientation="horizontal"
+    android:rowCount="13"
+    tools:context=".Registration_screen" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+
+
+    -->
+
+
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+
+
+    -->
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="left|top"
+        android:layout_row="0"
+        android:layout_rowSpan="1"
+        android:text="Information entered will be visible as your contact information" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="81dp"
+        android:layout_height="36dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="3"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Email"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="104dp"
+        android:layout_height="38dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="4"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Password"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="93dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="5"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Confirm \nPassword"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/confirmPasswordRegister"
+        android:layout_width="210dp"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal|top"
+        android:layout_row="5"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="7"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="First name"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/firstRegister"
+        android:layout_width="200dp"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal|top"
+        android:layout_row="7"
+        android:ems="10"
+        android:inputType="" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Last name"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/lastRegister"
+        android:layout_width="202dp"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="8"
+        android:ems="10"
+        tools:ignore="TextFields" />
+
+    <RadioGroup
+        android:id="@+id/networkRegister"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="left|center_vertical"
+        android:layout_row="12" >
+
+        <RadioButton
+            android:id="@+id/radioJoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Join existing network" />
+
+        <RadioButton
+            android:id="@+id/radioCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create new network" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="9"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Phone number"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/emailRegister"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal|center_vertical"
+        android:layout_row="3"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/passwordRegister"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal|top"
+        android:layout_row="4"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/phoneRegister"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="left|top"
+        android:layout_row="9"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/registerConfirmButton"
+        android:layout_width="182dp"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_row="12"
+        android:text="Register" />
+
+</GridLayout>
