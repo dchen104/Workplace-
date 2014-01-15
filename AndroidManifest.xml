@@ -12,11 +12,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-    	android:name = "ParseApplication"
+        android:name="com.example.workplace.ParseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        android:debuggable="true"
         <activity
             android:name="com.example.workplace.MainActivity"
             android:label="@string/app_name" >
@@ -29,6 +30,14 @@
         <activity
             android:name="com.example.workplace.RegistrationScreen"
             android:label="@string/title_activity_registration_screen" >
+        </activity>
+        <activity
+            android:name="com.example.workplace.CreateNetwork"
+            android:label="@string/title_activity_create_network" >
+        </activity>
+        <activity
+            android:name="com.example.workplace.JoinNetwork"
+            android:label="@string/title_activity_join_network" >
         </activity>
     </application>
 

@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import com.parse.FindCallback;
 import com.parse.ParseAnalytics;
@@ -135,18 +136,32 @@ public class RegistrationScreen extends Activity {
 					passPop.show();
 				}
 				else {
-					ParseObject newGlobalUser = new ParseObject("GlobalUsers");
-					newGlobalUser.put("email", email);
-					newGlobalUser.put("password", pass1);
-					newGlobalUser.put("firstName", firstName);
-					newGlobalUser.put("lastName", lastName);
-					newGlobalUser.put("phoneNum", phone);
-					newGlobalUser.saveInBackground();
-					ParseUser newUser = new ParseUser();
-					newUser.setUsername(email);
-					newUser.setPassword(pass1);
-					newUser.saveInBackground();
+
 					waitPop.cancel();
+					
+					RadioGroup radio = (RadioGroup) findViewById(R.id.networkRegister);
+					if (radio.getCheckedRadioButtonId() == 0) {
+						Intent joinNetworkIntent = new Intent(RegistrationScreen.this, 
+								JoinNetwork.class);
+						joinNetworkIntent.putExtra("email", email);
+						joinNetworkIntent.putExtra("password", pass1);
+						joinNetworkIntent.putExtra("firstName", firstName);
+						joinNetworkIntent.putExtra("lastName", lastName);
+						joinNetworkIntent.putExtra("phoneNum", phone);
+						startActivity(joinNetworkIntent);
+						
+					}
+					else {
+						Intent createNetworkIntent = new Intent(RegistrationScreen.this, 
+								CreateNetwork.class);
+						createNetworkIntent.putExtra("email", email);
+						createNetworkIntent.putExtra("password", pass1);
+						createNetworkIntent.putExtra("firstName", firstName);
+						createNetworkIntent.putExtra("lastName", lastName);
+						createNetworkIntent.putExtra("phoneNum", phone);
+						
+						startActivity(createNetworkIntent);
+					}
 				}
 				
 			}
@@ -227,23 +242,22 @@ public class RegistrationScreen extends Activity {
 	private boolean validPhone(String phoneText) {
 
 		StringBuilder phoneStr = new StringBuilder(phoneText);
-		if(phoneText.charAt(0) == '(' && phoneText.length() > 4 && phoneText.charAt(4) != ')') {
+		if(phoneStr.charAt(0) == '(' && phoneStr.length() > 4 && phoneStr.charAt(4) != ')') {
 			return false;
 		}
-		else if (phoneText.charAt(0) == '('){
-
+		else if (phoneStr.charAt(0) == '('){
 			phoneStr.deleteCharAt(0);
-			phoneStr.deleteCharAt(4);
+			phoneStr.deleteCharAt(3);
 			
 		}
 
-		if(phoneText.charAt(3) == ' ' || phoneText.charAt(3) == '-') {
+		if(phoneStr.charAt(3) == ' ' || phoneStr.charAt(3) == '-') {
 			phoneStr.deleteCharAt(3);
 		}
-		if(phoneText.charAt(6) == '-') {
+		if(phoneStr.charAt(6) == '-') {
 			phoneStr.deleteCharAt(6);
 		}
-		phoneText = phoneStr.toString();
+		phoneText = phoneStr.toString().trim();
 		if(phoneText.length() != 10) return false;
 		
 		String test;
