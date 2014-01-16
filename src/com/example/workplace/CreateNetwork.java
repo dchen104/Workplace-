@@ -52,7 +52,7 @@ public class CreateNetwork extends Activity {
 					waitPop.cancel();
 					AlertDialog.Builder networkDialog2 = new AlertDialog.Builder(CreateNetwork.this);
 					networkDialog2.setTitle("Congratulations!");
-					networkDialog2.setMessage("You have successfully created and account and new network"
+					networkDialog2.setMessage("You have successfully created an account and new network"
 							+ ". You may now send out email invitations for coworkers to join the network"
 							+ "or simply wait for coworkers to join the network on their own. You will now"
 							+ "be taken back to the login screen to login.");
@@ -77,6 +77,7 @@ public class CreateNetwork extends Activity {
 		return true;
 	}
 	
+	//Checks to see if chosen network name is unique.
 	private boolean uniqueNetwork() {
 		ParseQuery<ParseObject> findNetQuery = ParseQuery.getQuery("Networks");
 		findNetQuery.whereEqualTo("name", networkName);
